@@ -33,6 +33,6 @@ A Quick Booking System Using CC [Country Code] and Time offset
 
 </p>
 
-## Social Links
+## My Social Links
 ![GitHub followers](https://img.shields.io/github/followers/nusktec?style=social)
 ![Twitter Follow](https://img.shields.io/twitter/follow/revelation_rsc?style=social)
