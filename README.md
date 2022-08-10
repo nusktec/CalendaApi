@@ -13,7 +13,7 @@ A Quick Booking System Using CC [Country Code] and Time offset
 >Install dependencies <br>
 >`pip3 install -r requirements.txt`
 
->Start server
+>Start server <br>
 >`uvicorn main:app --reload`
 
 ## EndPoints
