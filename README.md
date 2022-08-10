@@ -24,8 +24,8 @@ A Quick Booking System Using CC [Country Code] and Time offset
 >`host:8080/get-countrycode`
 
 <!-- Badges -->
-<p>
 ## Technologies
+<p>
 
 ![JavaScript](https://img.shields.io/badge/-JSON-black?style=flat-square&logo=json)
 ![Nodejs](https://img.shields.io/badge/RESTAPI-INCLUDED-blue)
