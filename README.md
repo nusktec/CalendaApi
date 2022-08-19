@@ -15,6 +15,9 @@ A Quick Booking System Using CC [Country Code] and Time offset
 
 >Start server <br>
 >`uvicorn main:app --reload`
+  
+>Option config
+  >`You can activate your venv: source venv/bin/activate`
 
 ## EndPoints
 >Entry point <br>
