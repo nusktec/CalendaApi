@@ -23,8 +23,29 @@ A Quick Booking System Using CC [Country Code] and Time offset
 >Entry point <br>
 >`host:8080/`
 
->Fetch CC [Country Code] <br>
->`host:8080/get-countrycode`
+>Fetch Holidays By [Country Code] <br>
+>`host:8080/get-holidays/ng`
+
+>Request perfect date/time dynamically <br>
+>`Sample post data: {
+    "data": [
+        {
+            "from_": "2022-05-02T09:00:00.0+08:00",
+            "to_": "2022-05-02T17:00:00.0+08:00",
+            "cc_": "SG"
+        },
+        {
+            "from_": "2022-05-02T09:00:00.0+01:00",
+            "to_": "2022-05-02T17:00:00.0+01:00",
+            "cc_": "NG"
+        },
+        {
+            "from_": "2022-05-02T09:00:00.0+05:30",
+            "to_": "2022-05-02T17:00:00.0+05:30",
+            "cc_": "IN"
+        }
+    ]
+}`
 
 <!-- Badges -->
 ## Technologies
