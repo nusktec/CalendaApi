@@ -26,8 +26,9 @@ A Quick Booking System Using CC [Country Code] and Time offset
 >Fetch Holidays By [Country Code] <br>
 >`host:8080/get-holidays/ng`
 
->Request perfect date/time dynamically <br>
->`Sample post data: {
+>Request perfect date/time dynamically using the below format <br>
+`Sample post data: `
+<pre><code>{
     "data": [
         {
             "from_": "2022-05-02T09:00:00.0+08:00",
@@ -45,11 +46,12 @@ A Quick Booking System Using CC [Country Code] and Time offset
             "cc_": "IN"
         }
     ]
-}`
+  }</code></pre>
 
 <br>
->Note<br>
->`API docker added but has not been tested on any container: application run fine, no database required`
+
+  Note<br>
+  API docker added but has not been tested on any container: application run fine, no database required
 
 <!-- Badges -->
 ## Technologies
