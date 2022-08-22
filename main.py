@@ -36,6 +36,8 @@ def get_holidays(cc: str):
 # Endpoint to pull meeting days
 @app.post("/get-meeting")
 async def get_meeting(data: DateList):
+    from_date_suggests = []
+    to_date_suggests = []
     dx = data.data
     for x in dx:
         # split and hold date and time
@@ -52,11 +54,18 @@ async def get_meeting(data: DateList):
             return {"status": False, "message": "Bad date format, check and try again at " + xto_date}
         # check if any of the date fall in weekends
         if core.check_non_working_day(xfrom_date):
-            return {"status": False, "message": core.check_non_working_day(xfrom_date, True) + " is out of working days, "
-                                                                                           "select possible days and "
-                                                                                           "try again at "+xfrom_date}
+            return {"status": False,
+                    "message": core.check_non_working_day(xfrom_date, True) + " is out of working days, "
+                                                                              "select possible days and "
+                                                                              "try again at " + xfrom_date}
+        # check to date working days
         if core.check_non_working_day(xto_date):
-            return {"status": False, "message": core.check_non_working_day(xfrom_date, True) + " is out of working days, "
-                                                                                           "select possible days and "
-                                                                                           "try again at "+xto_date}
-    return data
+            return {"status": False,
+                    "message": core.check_non_working_day(xfrom_date, True) + " is out of working days, "
+                                                                              "select possible days and "
+                                                                              "try again at " + xto_date}
+        # check holidays and suggests based on country
+        from_date_suggests.append(core.check_holidays_and_sort(x.cc_, xfrom_date)+xfrom_time)
+        to_date_suggests.append(core.check_holidays_and_sort(x.cc_, xto_date)+xto_time)
+        # sincere we have sorted the correct date, the first test is always best for us
+    return [{"from": from_date_suggests[0], "to": to_date_suggests[0]}]
