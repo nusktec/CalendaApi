@@ -23,11 +23,14 @@ def check_holidays(country_code='NG', date="2022-10-10"):
 
 
 # This function take human date/time to check working days
-def check_working_day(date):
+def check_non_working_day(date, is_word=False):
     # using panda to determine week name
     no_work_days = ['SATURDAY', 'SUNDAY']
     df = pd.Timestamp(date).day_name()
-    return df.upper() in no_work_days
+    if not is_word:
+        return df.upper() in no_work_days
+    else:
+        return df
 
 
 # This function convert date inputs to standard json form

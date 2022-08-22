@@ -46,9 +46,17 @@ async def get_meeting(data: DateList):
         # Check each items and confirm it authenticity
         if not core.check_is_valid_date(xfrom_date):
             # Terminate the whole loop and return to user for real date time format
-            return {"status": False, "message": "Bad date format, check and try again at "+xfrom_date}
+            return {"status": False, "message": "Bad date format, check and try again at " + xfrom_date}
         if not core.check_is_valid_date(xto_date):
             # Terminate the whole loop and return to user for real date time format, ignore time check
             return {"status": False, "message": "Bad date format, check and try again at " + xto_date}
-
+        # check if any of the date fall in weekends
+        if core.check_non_working_day(xfrom_date):
+            return {"status": False, "message": core.check_non_working_day(xfrom_date, True) + " is out of working days, "
+                                                                                           "select possible days and "
+                                                                                           "try again at "+xfrom_date}
+        if core.check_non_working_day(xto_date):
+            return {"status": False, "message": core.check_non_working_day(xfrom_date, True) + " is out of working days, "
+                                                                                           "select possible days and "
+                                                                                           "try again at "+xto_date}
     return data
