@@ -47,6 +47,10 @@ A Quick Booking System Using CC [Country Code] and Time offset
     ]
 }`
 
+<br>
+>Note<br>
+>`API docker added but has not been tested on any container: application run fine, no database required`
+
 <!-- Badges -->
 ## Technologies
 <p>
