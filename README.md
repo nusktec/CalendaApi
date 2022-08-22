@@ -26,6 +26,9 @@ A Quick Booking System Using CC [Country Code] and Time offset
 >Fetch Holidays By [Country Code] <br>
 >`host:8080/get-holidays/ng`
 
+>Post request with array object[from_, to_, cc_] see sample below<br>
+>`host:8080/get-meeting`
+
 >Request perfect date/time dynamically using the below format <br>
 `Sample post data: `
 <pre><code>{
