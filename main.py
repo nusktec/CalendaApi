@@ -38,7 +38,17 @@ def get_holidays(cc: str):
 async def get_meeting(data: DateList):
     dx = data.data
     for x in dx:
+        # split and hold date and time
+        xfrom_date = x.from_.split("T")[0]
+        xto_date = x.to_.split("T")[0]
+        xfrom_time = x.from_.split("T")[1]
+        xto_time = x.to_.split("T")[1]
         # Check each items and confirm it authenticity
-        print(core.check_is_valid_date(x.from_.split("T")[0]))
-        # if (core.check_holidays(x.from_.split("T")))
+        if not core.check_is_valid_date(xfrom_date):
+            # Terminate the whole loop and return to user for real date time format
+            return {"status": False, "message": "Bad date format, check and try again at "+xfrom_date}
+        if not core.check_is_valid_date(xto_date):
+            # Terminate the whole loop and return to user for real date time format, ignore time check
+            return {"status": False, "message": "Bad date format, check and try again at " + xto_date}
+
     return data
